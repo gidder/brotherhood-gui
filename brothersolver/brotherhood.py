@@ -72,4 +72,7 @@ class Brotherhood:
 
     def get_credits(self):
         return int(self.call('askCredits'))
+        
+    def user_exists(self):
+		return self.call('solverConfig') != 'User Error!'
 
