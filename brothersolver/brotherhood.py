@@ -4,7 +4,12 @@ from hashlib import md5
 from random import choice, randint
 from string import ascii_uppercase, digits 
 
-API_BASE = 'http://ocrhood.gazcad.com/'
+API_VER = '1.1.8'
+
+if API_VER == '1.1.7':
+    API_BASE = 'http://ocrhood.gazcad.com/'
+else:
+    API_BASE = 'http://www.captchabrotherhood.com/'
 RECAPTCHA_BASE = 'http://www.google.com/recaptcha/api/image?c='
 ARRAY_IF = [1, 1, 1, 1, 1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, 1]
 ARRAY_A = [1, 1, -1, 1, 1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, 1]
@@ -108,7 +113,7 @@ class Brotherhood:
         if default_args:
             args['username'] = self.user
             args['password'] = self.password
-            args['version'] = '1.1.7'
+            args['version'] = API_VER
 
         query = urlencode(args)
 
